@@ -493,7 +493,7 @@ const App = ({ signOut }) => {
 
 
 
-      <form id="contato-form" className="espacador">
+      <form id="contato-form" className="espacador"  onSubmit={createNote}>
 
         <label htmlFor="nome">Nome:*</label>
         <input type="text" id="nome" name="nome" required />
