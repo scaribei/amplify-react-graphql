@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { API } from "aws-amplify";
-import { Button, View, withAuthenticator } from "@aws-amplify/ui-react";
-import { createNote as createNoteMutation } from "./graphql/mutations";
+/*import { Button, View, withAuthenticator } from "@aws-amplify/ui-react";*/
+import { createTodo as createTodoMutation } from "./graphql/mutations";
 
-const App = ({ signOut }) => {
-  const [selectedDisciplinas, setSelectedDisciplinas] = useState([]);
+const App = ({  }) => {
+  const [disciplinesSelected, setSelectedDisciplinas] = useState([]);
   const [nivel, setNivel] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -21,7 +21,7 @@ const App = ({ signOut }) => {
 
   const handleImageClick = (alt) => {
 
-    const updatedDisciplinas = [...selectedDisciplinas];
+    const updatedDisciplinas = [...disciplinesSelected];
     const index = updatedDisciplinas.indexOf(alt);
    
     if (index === -1) {
@@ -37,24 +37,24 @@ const App = ({ signOut }) => {
 
 
   const handleDiagnosticarClick = () => {
-    const newNivel = trateDiagnostico(selectedDisciplinas);
+    const newNivel = trateDiagnostico(disciplinesSelected);
     setNivel(newNivel);
     setShowResult(true);
   };
 
-  const createNote = async (event) => {
+  const createTodo = async (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
     const data = {
-      nome: form.get("nome"),
+      name: form.get("nome"),
       email: form.get("email"),
-      disciplinas: JSON.stringify(selectedDisciplinas),
-      mensagem: form.get("mensagem"),
+      disciplinesSelected: (disciplinesSelected),
+      description: form.get("mensagem"),
     };
 
     try {
       await API.graphql({
-        query: createNoteMutation,
+        query: createTodoMutation,
         variables: { input: data },
       });
 
@@ -102,7 +102,7 @@ const App = ({ signOut }) => {
       "DataAsProduct",
     ];
 
-    const disciplinasSelecionadas = selectedDisciplinas.filter((disciplina) =>
+    const disciplinasSelecionadas = disciplinesSelected.filter((disciplina) =>
       nivelBasicoDisciplinas.includes(disciplina)
     );
 
@@ -112,7 +112,7 @@ const App = ({ signOut }) => {
       nivel = "Básico";
     }
 
-    const disciplinasIntermediariasSelecionadas = selectedDisciplinas.filter(
+    const disciplinasIntermediariasSelecionadas = disciplinesSelected.filter(
       (disciplina) => nivelIntermediarioDisciplinas.includes(disciplina)
     );
 
@@ -120,7 +120,7 @@ const App = ({ signOut }) => {
       nivel = "Intermediário";
     }
 
-    const disciplinasAvancadasSelecionadas = selectedDisciplinas.filter(
+    const disciplinasAvancadasSelecionadas = disciplinesSelected.filter(
       (disciplina) => nivelAvancadoDisciplinas.includes(disciplina)
     );
 
@@ -157,7 +157,7 @@ const App = ({ signOut }) => {
       <div className="image-container">
         {/* Primeira Linha */}
         <div className="row">
-          <div className={`image ${selectedDisciplinas.includes("Sprint") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Sprint") ? "selected" : ""}`}>
             <img
               src="Sprint.png"
               alt="Sprint"
@@ -167,28 +167,28 @@ const App = ({ signOut }) => {
             <div className="overlay" />
             <div className="image-text">Desenvolvimento em períodos curtos</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Retro") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Retro") ? "selected" : ""}`}>
             <img src="Retro.png" alt="Retro" style={{ width: 100 }}
               onClick={() => handleImageClick("Retro")}
             />
             <div className="overlay" />
             <div className="image-text">Reflexão após cada sprint</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Epico") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Epico") ? "selected" : ""}`}>
             <img src="Epico.png" alt="Epico" style={{ width: 100 }}
               onClick={() => handleImageClick("Epico")}
             />
             <div className="overlay" />
             <div className="image-text">Grandes objetivos divididos</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Planning") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Planning") ? "selected" : ""}`}>
             <img src="Planning.png" alt="Planning" style={{ width: 100 }}
               onClick={() => handleImageClick("Planning")}
             />
             <div className="overlay" />
             <div className="image-text">Definindo metas e prioridades</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("CICD") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("CICD") ? "selected" : ""}`}>
             <img src="CICD.png" alt="CICD" style={{ width: 100 }}
               onClick={() => handleImageClick("CICD")}
             />
@@ -197,7 +197,7 @@ const App = ({ signOut }) => {
               Integração Contínua/Entrega Contínua
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Cloud") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Cloud") ? "selected" : ""}`}>
             <img src="Cloud.png" alt="Cloud" style={{ width: 100 }}
               onClick={() => handleImageClick("Cloud")}
             />
@@ -206,7 +206,7 @@ const App = ({ signOut }) => {
               Armazenamento e processamento de dados online
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("EvoArch") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("EvoArch") ? "selected" : ""}`}>
             <img src="EvoArch.png" alt="EvoArch" style={{ width: 100 }}
               onClick={() => handleImageClick("EvoArch")}
             />
@@ -215,7 +215,7 @@ const App = ({ signOut }) => {
               (Arquitetura Evolutiva): Arquitetura de software flexível e adaptável
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("InnerSource") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("InnerSource") ? "selected" : ""}`}>
             <img src="InnerSource.png" alt="InnerSource" style={{ width: 100 }}
               onClick={() => handleImageClick("InnerSource")}
             />
@@ -224,7 +224,7 @@ const App = ({ signOut }) => {
               Práticas de desenvolvimento colaborativo, semelhantes ao Open-Source
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("DX") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("DX") ? "selected" : ""}`}>
             <img src="DX.png" alt="DX" style={{ width: 100 }}
               onClick={() => handleImageClick("DX")}
             />
@@ -233,7 +233,7 @@ const App = ({ signOut }) => {
               Experiência do Desenvolvedor
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Finops") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Finops") ? "selected" : ""}`}>
             <img src="Finops.png" alt="Finops" style={{ width: 100 }}
               onClick={() => handleImageClick("Finops")}
             />
@@ -246,60 +246,60 @@ const App = ({ signOut }) => {
         </div>
         {/* Segunda Linha */}
         <div className="row-two">
-          <div className={`image ${selectedDisciplinas.includes("Kaban") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Kaban") ? "selected" : ""}`}>
             <img src="Kaban.png" alt="Kaban" style={{ width: 100 }} onClick={() => handleImageClick("Kaban")}
             />
             <div className="overlay" />
             <div className="image-text"> Controle visual do trabalho</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Scrum") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Scrum") ? "selected" : ""}`}>
             <img src="Scrum.png" alt="Scrum" style={{ width: 100 }} onClick={() => handleImageClick("Scrum")} />
             <div className="overlay" />
             <div className="image-text">Colaboração e entregas frequentes</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Features") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Features") ? "selected" : ""}`}>
             <img src="Feaures.png" alt="Feaures" style={{ width: 100 }} onClick={() => handleImageClick("Features")} />
             <div className="overlay" />
             <div className="image-text">
               Funcionalidades específicas bem definidas
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Pairing") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Pairing") ? "selected" : ""}`}>
             <img src="Pairing.png" alt="Pairing" style={{ width: 100 }} onClick={() => handleImageClick("Pairing")} />
             <div className="overlay" />
             <div className="image-text">
               Programação em par, duas pessoas colaborando em código
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("TDD") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("TDD") ? "selected" : ""}`}>
             <img src="TDD.png" alt="TDD" style={{ width: 100 }} onClick={() => handleImageClick("TDD")} />
             <div className="overlay" />
             <div className="image-text">
               Desenvolvimento Orientado a Testes
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("DDD") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("DDD") ? "selected" : ""}`}>
             <img src="DDD.png" alt="DDD" style={{ width: 100 }} onClick={() => handleImageClick("DDD")} />
             <div className="overlay" />
             <div className="image-text">
               Design Orientado a Domínio
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("AutomatTests") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("AutomatTests") ? "selected" : ""}`}>
             <img src="AutomatTests.png" alt="AutomatTests" style={{ width: 100 }} onClick={() => handleImageClick("AutomatTests")} />
             <div className="overlay" />
             <div className="image-text">
               Automatização de testes para garantir a qualidade do software
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("DataDriven") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("DataDriven") ? "selected" : ""}`}>
             <img src="DataDriven.png" alt="DataDriven" style={{ width: 100 }} onClick={() => handleImageClick("DataDriven")} />
             <div className="overlay" />
             <div className="image-text">
               Orientado por Dados: Tomada de decisões baseada em análise de dados
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Platform") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Platform") ? "selected" : ""}`}>
             <img src="Platform.png" alt="Platform" style={{ width: 100 }} onClick={() => handleImageClick("Platform")} />
             <div className="overlay" />
             <div className="image-text">
@@ -313,19 +313,19 @@ const App = ({ signOut }) => {
         </div>
         {/* Terceira Linha */}
         <div className="row-three">
-          <div className={`image ${selectedDisciplinas.includes("Story") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Story") ? "selected" : ""}`}>
             <img src="Story.png" alt="Story" style={{ width: 100 }} onClick={() => handleImageClick("Story")} />
             <div className="overlay" />
             <div className="image-text">Unidades de trabalho ágil</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Backlog") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Backlog") ? "selected" : ""}`}>
             <img src="Backlog.png" alt="Backlog" style={{ width: 100 }}
               onClick={() => handleImageClick("Backlog")}
             />
             <div className="overlay" />
             <div className="image-text">Lista de tarefas priorizadas</div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Solid") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Solid") ? "selected" : ""}`}>
             <img src="Solid.png" alt="Solid" style={{ width: 100 }}
               onClick={() => handleImageClick("Solid")}
             />
@@ -334,7 +334,7 @@ const App = ({ signOut }) => {
               Princípios de design de software para código limpo e escalável
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("CleanArch") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("CleanArch") ? "selected" : ""}`}>
             <img src="CleanArch.png" alt="CleanArch" style={{ width: 100 }}
               onClick={() => handleImageClick("CleanArch")}
             />
@@ -344,7 +344,7 @@ const App = ({ signOut }) => {
               Estruturar código de forma organizada e testável
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("Git") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("Git") ? "selected" : ""}`}>
             <img src="Git.png" alt="Git" style={{ width: 100 }}
               onClick={() => handleImageClick("Git")}
             />
@@ -353,7 +353,7 @@ const App = ({ signOut }) => {
               Sistema de controle de versão para colaboração no desenvolvimento
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("DevOps") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("DevOps") ? "selected" : ""}`}>
             <img src="DevOps.png" alt="DevOps" style={{ width: 100 }}
               onClick={() => handleImageClick("DevOps")}
             />
@@ -362,7 +362,7 @@ const App = ({ signOut }) => {
               Cultura de colaboração entre desenvolvimento e operações
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("ArchAsProduct") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("ArchAsProduct") ? "selected" : ""}`}>
             <img src="ArchAsProd.png" alt="ArchAsProduct" style={{ width: 100 }}
               onClick={() => handleImageClick("ArchAsProduct")}
             />
@@ -371,7 +371,7 @@ const App = ({ signOut }) => {
               Abordagem que trata a arquitetura de software como um produto valioso
             </div>
           </div>
-          <div className={`image ${selectedDisciplinas.includes("DataAsProduct") ? "selected" : ""}`}>
+          <div className={`image ${disciplinesSelected.includes("DataAsProduct") ? "selected" : ""}`}>
             <img
               src="DataAsProduct.png"
               alt="DataAsProduct"
@@ -493,7 +493,7 @@ const App = ({ signOut }) => {
 
 
 
-      <form id="contato-form" className="espacador"  onSubmit={createNote}>
+      <form id="contato-form" className="espacador"  onSubmit={createTodo}>
 
         <label htmlFor="nome">Nome:*</label>
         <input type="text" id="nome" name="nome" required />
@@ -562,4 +562,5 @@ const App = ({ signOut }) => {
 
 
 };
-export default withAuthenticator(App);
+//export default withAuthenticator(App);
+export default App;
