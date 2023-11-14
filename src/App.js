@@ -48,8 +48,8 @@ const App = ({ signOut }) => {
     const data = {
       nome: form.get("nome"),
       email: form.get("email"),
-      mensagem: form.get("mensagem"),
       disciplinas: JSON.stringify(selectedDisciplinas),
+      mensagem: form.get("mensagem"),
     };
 
     try {
