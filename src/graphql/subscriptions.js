@@ -6,30 +6,8 @@ export const onCreateNote = /* GraphQL */ `
     onCreateNote(filter: $filter) {
       id
       name
-      description
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onUpdateNote = /* GraphQL */ `
-  subscription OnUpdateNote($filter: ModelSubscriptionNoteFilterInput) {
-    onUpdateNote(filter: $filter) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onDeleteNote = /* GraphQL */ `
-  subscription OnDeleteNote($filter: ModelSubscriptionNoteFilterInput) {
-    onDeleteNote(filter: $filter) {
-      id
-      name
+      email
+      disciplinesSelected
       description
       createdAt
       updatedAt
