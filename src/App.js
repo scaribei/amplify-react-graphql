@@ -58,7 +58,8 @@ const App = ({  }) => {
         variables: { input: data },
       });
 
-      alert("Dados enviados com sucesso, em breve entraremos em contato!");
+      //alert("Dados enviados com sucesso, em breve entraremos em contato!");
+      window.alert("Dados enviados com sucesso, em breve entraremos em contato!");
 
       // Limpa os campos do formulário
       event.target.reset();
@@ -485,6 +486,8 @@ const App = ({  }) => {
       <div className="espacador"></div>
       <div className="espacador"></div>
       <div className="espacador"></div>
+      <div className="espacador"></div>
+
 
       <h3>
         Gostaria de receber o diagnóstico por email com alguns insights
@@ -535,6 +538,10 @@ const App = ({  }) => {
         >
           Enviar
         </button>
+        <div className="espacador"></div>
+        <div className="espacador"></div>
+        <div className="espacador"></div>
+
       </form>
 
       <div className={`modal ${modalVisible ? "show" : "modal-content"}`}>
