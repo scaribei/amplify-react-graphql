@@ -5,7 +5,7 @@ import { API } from "aws-amplify";
 /*import { Button, View, withAuthenticator } from "@aws-amplify/ui-react";*/
 import { createTodo as createTodoMutation } from "./graphql/mutations";
 
-const App = ({  }) => {
+const App = ({ }) => {
   const [disciplinesSelected, setSelectedDisciplinas] = useState([]);
   const [nivel, setNivel] = useState("");
   const [showResult, setShowResult] = useState(false);
@@ -23,7 +23,7 @@ const App = ({  }) => {
 
     const updatedDisciplinas = [...disciplinesSelected];
     const index = updatedDisciplinas.indexOf(alt);
-   
+
     if (index === -1) {
       // Adiciona se não estiver selecionado
       updatedDisciplinas.push(alt);
@@ -134,10 +134,12 @@ const App = ({  }) => {
 
   return (
     <div className="image-container">
-      <img
-        src="logoNextDigitalTech.png"
-        alt="NextDigital Tech"
-        style={{ width: 300 }} />
+      <a href="/">
+        <img
+          src="logoNextDigitalTech.png"
+          alt="NextDigital Tech"
+          style={{ width: 300 }} />
+      </a>
       <h1>Diagnóstico de Efetividade em tecnologia</h1>
       <div className="espacador"></div>
       <div className="espacador"></div>
@@ -496,7 +498,7 @@ const App = ({  }) => {
 
 
 
-      <form id="contato-form" className="espacador"  onSubmit={createTodo}>
+      <form id="contato-form" className="espacador" onSubmit={createTodo}>
 
         <label htmlFor="nome">Nome:*</label>
         <input type="text" id="nome" name="nome" required />
