@@ -137,7 +137,7 @@ const App = ({ }) => {
       <a href="/">
         <img
           src="logoNextDigitalTech.png"
-          alt="NextDigital Tech"
+          alt="NextDigital"
           style={{ width: 300 }} />
       </a>
       <h1>Diagnóstico de Efetividade em tecnologia</h1>
