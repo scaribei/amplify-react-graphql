@@ -167,7 +167,8 @@ input[type="email"] {
 /* Estilos para o botão destacado */
 .highlight-button {
   display: block;
-  margin-left: 400px;
+  margin-right: 20%;
+  align-self: center;
   padding: 15px 30px; /* Define o tamanho do botão */
   font-size: 18px; /* Define o tamanho da fonte */
   background-color: #3498db; /* Cor de fundo */
