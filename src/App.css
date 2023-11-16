@@ -160,6 +160,12 @@ input[type="email"] {
 
 .espacador {
   height: 40px; /* Define a altura do espaçador */
+  margin-top: 40px;
+
+}
+.espacadorForm {
+  height: 40px; /* Define a altura do espaçador */
+  margin-top: 40px;
 }
 .espacadorResult {
   height: 80px; /* Define a altura do espaçador */
@@ -167,7 +173,7 @@ input[type="email"] {
 /* Estilos para o botão destacado */
 .highlight-button {
   display: block;
-  margin-right: 22%;
+  margin-right: 30%;
   align-self: center;
   padding: 15px 30px; /* Define o tamanho do botão */
   font-size: 18px; /* Define o tamanho da fonte */

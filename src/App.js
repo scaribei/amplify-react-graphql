@@ -142,7 +142,7 @@ const App = ({ }) => {
       </a>
       <h1>Diagnóstico de Efetividade em tecnologia</h1>
       <div className="espacador"></div>
-      <div className="espacador"></div>
+     
       <h2>Escolha as disciplinas que sua empresa implementa abaixo:</h2>
       {/* <div class="paragraph">
           <p>Os elementos em amarelo representam disciplinas de gestão ágil</p>
