@@ -246,6 +246,9 @@ const App = ({ }) => {
               de TI
             </div>
           </div>
+          <div className="image-space2">
+            <img src="NextDigital-4.png" style={{ width: 100 }} />
+          </div>
         </div>
         {/* Segunda Linha */}
         <div className="row-two">
@@ -304,14 +307,14 @@ const App = ({ }) => {
           </div>
           <div className={`image ${disciplinesSelected.includes("Platform") ? "selected" : ""}`}>
             <img src="Platform.png" alt="Platform" style={{ width: 100 }} onClick={() => handleImageClick("Platform")} />
+
             <div className="overlay" />
             <div className="image-text">
               Um ambiente tecnológico para construir e reutilizar artefatos
             </div>
           </div>
           <div className="image-space">
-            <img src="NextDigital-4.png" alt="Platform" style={{ width: 99 }} />
-            <div className="overlay" />
+            <img src="NextDigital-4.png" style={{ width: 100 }} />
           </div>
         </div>
         {/* Terceira Linha */}
@@ -385,11 +388,8 @@ const App = ({ }) => {
               Tratar dados como um recurso valioso para a empresa
             </div>
           </div>
-          <div className="image-space">
-            <img src="NextDigital-4.png" alt="Platform" style={{ width: 100 }} />
-          </div>
-          <div className="image-space">
-            <img src="NextDigital-4.png" alt="Platform" style={{ width: 100 }} />
+          <div className="image-space3">
+            <img src="NextDigital-4.png" style={{ width: 100 }} />
           </div>
         </div>
       </div>
