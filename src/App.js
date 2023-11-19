@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { API } from "aws-amplify";
-/*import { Button, View, withAuthenticator } from "@aws-amplify/ui-react";*/
 import { createTodo as createTodoMutation } from "./graphql/mutations";
 
 const App = ({ }) => {
@@ -141,8 +140,7 @@ const App = ({ }) => {
           style={{ width: 300 }} />
       </a>
       <h1>Diagnóstico de Efetividade em tecnologia</h1>
-      <div className="espacador"></div>
-     
+
       <h2>Escolha as disciplinas que sua empresa implementa abaixo:</h2>
       {/* <div class="paragraph">
           <p>Os elementos em amarelo representam disciplinas de gestão ágil</p>
@@ -397,38 +395,33 @@ const App = ({ }) => {
         onClick={handleDiagnosticarClick}>
         Diagnosticar
       </button>
-      <div className="container" style={{ marginBottom: showResult ? '20px' : '0' }}> </div>
-      <div id="resultado" className={showResult ? "espacador" : "hidden"}>
-        <div id="diagnostico-texto" className="espacador" style={{ marginBottom: showResult ? '20px' : '0' }}>
+      <div className="espacador" />
+      <div id="diagnostico-texto" className={showResult ? 
+                                            (nivel === 'Iniciante' 
+                                            ? 'espacadorIniciante' 
+                                            : (nivel === 'Básico' 
+                                            ? 'espacadorBasico' 
+                                            : (nivel === 'Intermediário' 
+                                            ? 'espacadorIntermediario' 
+                                            : 'espacadorAvancado'))) 
+                                            : 'espacadorIniciante'}>
           {nivel === "Iniciante" && (
-            <div>
-              Sua empresa está no nível Iniciante. Considere implementar mais
-              disciplinas para progredir para níveis superiores.
-            </div>
+            "Sua empresa está no nível Iniciante. Considere implementar mais disciplinas para progredir para níveis superiores."
           )}
           {nivel === "Básico" && (
-            <div style={{ marginBottom: showResult ? '20px' : '0' }}>
-              Sua empresa possui elementos de <strong>Gestão Ágil</strong>. Os
-              benefícios atuais incluem:
+            <>Sua empresa possui elementos de <strong> Gestão Ágil </strong>. Os benefícios atuais incluem: Maior Eficiência:
               <ul>
-                <li>
-                  Maior Eficiência: Implementar práticas como Sprint, Retro e
-                  Scrum ajuda a melhorar a eficiência das equipes de
-                  desenvolvimento.
+                <li>Implementar práticas como Sprint, Retro e Scrum ajuda a melhorar a eficiência das equipes de desenvolvimento.
                 </li>
-                <li>
-                  Melhor Comunicação: O uso de Backlog e Story auxilia na
-                  comunicação e colaboração entre equipes e partes interessadas.
+                <li> Melhor Comunicação: O uso de Backlog e Story auxilia na comunicação e colaboração entre equipes e partes interessadas.
                 </li>
-                <li>
-                  Maior Visibilidade: Disciplinas como Features e Planning
-                  oferecem maior visibilidade dos projetos em andamento.
+                <li>Maior Visibilidade: Disciplinas como Features e Planning oferecem maior visibilidade dos projetos em andamento.
                 </li>
               </ul>
-            </div>
+            </>
           )}
           {nivel === "Intermediário" && (
-            <div>
+            <>
               Sua empresa alcançou práticas de <strong>Engenharia de Software</strong>. Os
               benefícios atuais incluem:
               <ul>
@@ -447,10 +440,10 @@ const App = ({ }) => {
                   escalar recursos conforme necessário.
                 </li>
               </ul>
-            </div>
+            </>
           )}
-          {nivel === "Avançado" && (
-            <div className="espacador">
+          {nivel === "Avançado"  && (
+            <>
               Parabéns! Sua empresa está no nível Avançado. Os benefícios atuais
               incluem:
               <ul>
@@ -474,97 +467,92 @@ const App = ({ }) => {
                   rapidamente a novos desafios.
                 </li>
               </ul>
-              <p className="espacador">
+              <p style={{ marginBottom: 100 }}>
                 Sua empresa está na vanguarda da inovação e da eficiência no
                 desenvolvimento de software. Continue aprimorando suas práticas
                 para manter essa posição.
               </p>
-            </div>
+            </>
 
           )
+
           }
         </div>
-      </div>
-      <div className="espacador"></div>
-      <div className="espacador"></div>
-      <div className="espacador"></div>
-      <div className="espacador"></div>
+      
+      <><div>
+        <h3>
+          Gostaria de receber o diagnóstico por email com alguns insights
+          adicionais? Preencha os dados abaixo ou apenas envie sugestões e feedback!
+        </h3>
+      </div><div className="espacador" style={{ marginBottom: '40px' }}>
+
+          <form id="contato-form" className="espacador" onSubmit={createTodo}>
 
 
-      <h3>
-        Gostaria de receber o diagnóstico por email com alguns insights
-        adicionais? Preencha os dados abaixo ou apenas envie sugestões e feedback!
-      </h3>
+            <label htmlFor="nome">Nome:*</label>
+            <input type="text" id="nome" name="nome" required />
+            <br />
+            <br />
+            <label htmlFor="email">Email*:</label>
+            <input type="email" id="email" name="email" style={{ width: "300px" }} required />
+            <br />
+            <br />
+            <label htmlFor="mensagem">
+              Sugestões - ex: Gostaria de ver algum elemento?/Feedback:
+            </label>
+            <br />
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows={4}
+              cols={80}
+              defaultValue={""} />
+            <br />
+            <br />
+            <input type="checkbox" id="agree-checkbox" required />
+            <label htmlFor="agree-checkbox">
+              Eu concordo com os termos e condições*
+            </label>
+            <br />
+            <a id="terms-link" href="#" onClick={openModal}>
+              Termos e Condições
+            </a>
+            <div>
+              Preencha todo os campos com *(obrigatórios)
+              <br />e depois click em Enviar
+            </div>
+            <button
+              type="submit"
+              className="highlight-button"
+              id="submit-button"
+              disabled=""
+            >
+              Enviar
+            </button>
 
+            <div className="espacadorResult"></div>
+          
 
-
-      <form id="contato-form" className="espacador" onSubmit={createTodo}>
-
-        <label htmlFor="nome">Nome:*</label>
-        <input type="text" id="nome" name="nome" required />
-        <br />
-        <br />
-        <label htmlFor="email">Email*:</label>
-        <input type="email" id="email" name="email" style={{ width: "300px" }} required />
-        <br />
-        <br />
-        <label htmlFor="mensagem">
-          Sugestões - ex: Gostaria de ver algum elemento?/Feedback:
-        </label>
-        <br />
-        <textarea
-          id="mensagem"
-          name="mensagem"
-          rows={4}
-          cols={80}
-          defaultValue={""} />
-        <br />
-        <br />
-        <input type="checkbox" id="agree-checkbox" required />
-        <label htmlFor="agree-checkbox">
-          Eu concordo com os termos e condições*
-        </label>
-        <br />
-        <a id="terms-link" href="#" onClick={openModal}>
-          Termos e Condições
-        </a>
-        <div>
-          Preencha todo os campos com *(obrigatórios)
-          <br />e depois click em Enviar
-        </div>
-        <button
-          type="submit"
-          className="highlight-button"
-          id="submit-button"
-          disabled=""
-        >
-          Enviar
-        </button>
-        <div className="espacador"></div>
-        <div className="espacador"></div>
-        <div className="espacador"></div>
-
-      </form>
-
-      <div className={`modal ${modalVisible ? "show" : "modal-content"}`}>
-        <div className="modal-content">
-          <h2>Termos e Condições</h2>
-          Ao concordar com esses termos, você permite que a NextDigital Tech
-          utilize os dados fornecidos apenas para entrar em contato com você ou
-          sua empresa com seu consentimento. Os dados não serão utilizados para
-          nenhum outro fim.
-          <p>
-            Se você tiver alguma dúvida ou preocupação, entre em contato conosco: contato@nextdigitaltech.com.br
-          </p>
-          <input type="checkbox" id="agree-terms-checkbox" />
-          <label htmlFor="agree-terms-checkbox" >
-            Eu concordo com os termos e condições.
-          </label>
-          <button onClick={closeModal} id="accept-terms-button">
-            OK
-          </button>
-        </div>
-      </div>
+          </form>
+        </div><div className={`modal ${modalVisible ? "show" : "modal-content"}`}>
+          <div className="modal-content">
+            <h2>Termos e Condições</h2>
+            Ao concordar com esses termos, você permite que a NextDigital Tech
+            utilize os dados fornecidos apenas para entrar em contato com você ou
+            sua empresa com seu consentimento. Os dados não serão utilizados para
+            nenhum outro fim.
+            <p>
+              Se você tiver alguma dúvida ou preocupação, entre em contato conosco: contato@nextdigitaltech.com.br
+            </p>
+            <input type="checkbox" id="agree-terms-checkbox" />
+            <label htmlFor="agree-terms-checkbox">
+              Eu concordo com os termos e condições.
+            </label>
+            <button onClick={closeModal} id="accept-terms-button">
+              OK
+            </button>
+          </div>
+        </div></>
 
     </div>
   );
