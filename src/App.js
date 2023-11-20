@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { API } from "aws-amplify";
 import { createTodo as createTodoMutation } from "./graphql/mutations";
 
-const App = ({ }) => {
+const App = () => {
   const [disciplinesSelected, setSelectedDisciplinas] = useState([]);
   const [nivel, setNivel] = useState("");
   const [showResult, setShowResult] = useState(false);
@@ -514,7 +514,7 @@ const App = ({ }) => {
               Eu concordo com os termos e condições*
             </label>
             <br />
-            <a id="terms-link" href="#" onClick={openModal}>
+            <a id="terms-link" href="#" onClick={openModal}  role="button" aria-hidden="true">
               Termos e Condições
             </a>
             <div>
