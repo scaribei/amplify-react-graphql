@@ -80,25 +80,30 @@ input[type="email"] {
   display: flex;
   max-width: 100%;
   margin: 0;
+  margin-bottom: -0.50cm;
+
 }
 
 .row-two {
   display: flex;
   vertical-align: top;
-  max-width: 100%;
+  
   margin-left: 1.3cm;
-  margin-top: -0.75cm;
+  margin-bottom: -0.50cm;
+  margin-top: -0.40cm;
+  margin-right: 0.5cm;
+
 }
 
 .row-three {
   display: flex;
   max-width: 100%;
   margin-left: 2.6cm;
-  margin-top: -0.75cm;
+  margin-right: 1.0cm;
+  margin-top: -0.40cm;
 }
 
 .image {
-  width: 10%;
   margin: 0;
   cursor: pointer;
   box-sizing: border-box;
@@ -149,7 +154,7 @@ input[type="email"] {
   top: 0%;
   left: 0%;
   width: 100%;
-  height: 100%;
+  height: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -310,6 +315,9 @@ input[type="email"] {
   .espacadorAvancado {
     margin-bottom: 0px; 
   }
+  .responsive-textarea {
+    width: 120%; /* Largura para telas maiores que 600 pixels */
+  }
 }
 
 /*smartphone*/
@@ -371,10 +379,59 @@ input[type="email"] {
     margin-bottom: 20px; /* Adiciona uma margem na parte inferior da seção */
     justify-content: center;
   }
+
+  .row-two {
+    display: flex;
+    margin-left: 0.5cm;
+    margin-right: 0.5cm;
+    margin-bottom: -0.50cm;
+    margin-top: -0.40cm;
+  }
+  
+  .row-three {
+    display: flex;
+    max-width: 100%;
+    margin-left: 1.0cm;
+    margin-right: 1.0cm;
+    margin-top: -0.40cm;
+  }
+  
+  .image {
+    margin: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .image-space {
+    position: relative;
+    display: flex;
+    margin: 0;
+    width: 10%;
+    margin-top: -0.21cm;
+    margin-left: -1.0cm;
+    
+  }
+  .image-space2 {
+    position: relative;
+    display: flex;
+    height: 50%;
+    width: 10%;
+    margin-top: -0.21cm;
+    margin-left: -0.5cm;
+  }
+  .image-space3 {
+    position: relative;
+    display: flex;
+    height: 50%;
+    width: 10%;
+    margin-top: -0.21cm;
+    margin-left: -1cm;
+  }
+
   body {
     background-color: #000; /* Define a cor de fundo como preto (#000) */
     color: #fff; /* Define a cor do texto como branco (#fff) para melhor legibilidade */
-  
+    margin:auto;
   }
   .espacadorIniciante {
     margin-bottom: 20px;  
@@ -388,6 +445,8 @@ input[type="email"] {
   .espacadorAvancado {
     margin-bottom: 0px; 
   }
-    
+  .responsive-textarea {
+    width: 100%; /* Largura para telas maiores que 600 pixels */
+  }
 
 }

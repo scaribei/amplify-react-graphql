@@ -162,35 +162,35 @@ const App = ({ }) => {
             <img
               src="Sprint.png"
               alt="Sprint"
-              style={{ width: 100 }}
+              
               onClick={() => handleImageClick("Sprint")}
             />
             <div className="overlay" />
             <div className="image-text">Desenvolvimento em períodos curtos</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Retro") ? "selected" : ""}`}>
-            <img src="Retro.png" alt="Retro" style={{ width: 100 }}
+            <img src="Retro.png" alt="Retro" 
               onClick={() => handleImageClick("Retro")}
             />
             <div className="overlay" />
             <div className="image-text">Reflexão após cada sprint</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Epico") ? "selected" : ""}`}>
-            <img src="Epico.png" alt="Epico" style={{ width: 100 }}
+            <img src="Epico.png" alt="Epico" 
               onClick={() => handleImageClick("Epico")}
             />
             <div className="overlay" />
             <div className="image-text">Grandes objetivos divididos</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Planning") ? "selected" : ""}`}>
-            <img src="Planning.png" alt="Planning" style={{ width: 100 }}
+            <img src="Planning.png" alt="Planning" 
               onClick={() => handleImageClick("Planning")}
             />
             <div className="overlay" />
             <div className="image-text">Definindo metas e prioridades</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("CICD") ? "selected" : ""}`}>
-            <img src="CICD.png" alt="CICD" style={{ width: 100 }}
+            <img src="CICD.png" alt="CICD" 
               onClick={() => handleImageClick("CICD")}
             />
             <div className="overlay" />
@@ -199,7 +199,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Cloud") ? "selected" : ""}`}>
-            <img src="Cloud.png" alt="Cloud" style={{ width: 100 }}
+            <img src="Cloud.png" alt="Cloud" 
               onClick={() => handleImageClick("Cloud")}
             />
             <div className="overlay" />
@@ -208,7 +208,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("EvoArch") ? "selected" : ""}`}>
-            <img src="EvoArch.png" alt="EvoArch" style={{ width: 100 }}
+            <img src="EvoArch.png" alt="EvoArch" 
               onClick={() => handleImageClick("EvoArch")}
             />
             <div className="overlay" />
@@ -217,7 +217,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("InnerSource") ? "selected" : ""}`}>
-            <img src="InnerSource.png" alt="InnerSource" style={{ width: 100 }}
+            <img src="InnerSource.png" alt="InnerSource" 
               onClick={() => handleImageClick("InnerSource")}
             />
             <div className="overlay" />
@@ -226,7 +226,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("DX") ? "selected" : ""}`}>
-            <img src="DX.png" alt="DX" style={{ width: 100 }}
+            <img src="DX.png" alt="DX"
               onClick={() => handleImageClick("DX")}
             />
             <div className="overlay" />
@@ -235,7 +235,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Finops") ? "selected" : ""}`}>
-            <img src="Finops.png" alt="Finops" style={{ width: 100 }}
+            <img src="Finops.png" alt="Finops"
               onClick={() => handleImageClick("Finops")}
             />
             <div className="overlay" />
@@ -244,93 +244,93 @@ const App = ({ }) => {
               de TI
             </div>
           </div>
-          <div className="image-space2">
-            <img src="NextDigital-4.png" style={{ width: 100 }} />
-          </div>
+         {/* <div className="image-space2">
+            <img src="NextDigital.png"  />
+  </div>*/}
         </div>
         {/* Segunda Linha */}
         <div className="row-two">
           <div className={`image ${disciplinesSelected.includes("Kaban") ? "selected" : ""}`}>
-            <img src="Kaban.png" alt="Kaban" style={{ width: 100 }} onClick={() => handleImageClick("Kaban")}
+            <img src="Kaban.png" alt="Kaban"  onClick={() => handleImageClick("Kaban")}
             />
             <div className="overlay" />
             <div className="image-text"> Controle visual do trabalho</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Scrum") ? "selected" : ""}`}>
-            <img src="Scrum.png" alt="Scrum" style={{ width: 100 }} onClick={() => handleImageClick("Scrum")} />
+            <img src="Scrum.png" alt="Scrum"  onClick={() => handleImageClick("Scrum")} />
             <div className="overlay" />
             <div className="image-text">Colaboração e entregas frequentes</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Features") ? "selected" : ""}`}>
-            <img src="Feaures.png" alt="Feaures" style={{ width: 100 }} onClick={() => handleImageClick("Features")} />
+            <img src="Feaures.png" alt="Feaures"  onClick={() => handleImageClick("Features")} />
             <div className="overlay" />
             <div className="image-text">
               Funcionalidades específicas bem definidas
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Pairing") ? "selected" : ""}`}>
-            <img src="Pairing.png" alt="Pairing" style={{ width: 100 }} onClick={() => handleImageClick("Pairing")} />
+            <img src="Pairing.png" alt="Pairing" onClick={() => handleImageClick("Pairing")} />
             <div className="overlay" />
             <div className="image-text">
               Programação em par, duas pessoas colaborando em código
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("TDD") ? "selected" : ""}`}>
-            <img src="TDD.png" alt="TDD" style={{ width: 100 }} onClick={() => handleImageClick("TDD")} />
+            <img src="TDD.png" alt="TDD" onClick={() => handleImageClick("TDD")} />
             <div className="overlay" />
             <div className="image-text">
               Desenvolvimento Orientado a Testes
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("DDD") ? "selected" : ""}`}>
-            <img src="DDD.png" alt="DDD" style={{ width: 100 }} onClick={() => handleImageClick("DDD")} />
+            <img src="DDD.png" alt="DDD"  onClick={() => handleImageClick("DDD")} />
             <div className="overlay" />
             <div className="image-text">
               Design Orientado a Domínio
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("AutomatTests") ? "selected" : ""}`}>
-            <img src="AutomatTests.png" alt="AutomatTests" style={{ width: 100 }} onClick={() => handleImageClick("AutomatTests")} />
+            <img src="AutomatTests.png" alt="AutomatTests"  onClick={() => handleImageClick("AutomatTests")} />
             <div className="overlay" />
             <div className="image-text">
               Automatização de testes para garantir a qualidade do software
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("DataDriven") ? "selected" : ""}`}>
-            <img src="DataDriven.png" alt="DataDriven" style={{ width: 100 }} onClick={() => handleImageClick("DataDriven")} />
+            <img src="DataDriven.png" alt="DataDriven"  onClick={() => handleImageClick("DataDriven")} />
             <div className="overlay" />
             <div className="image-text">
               Orientado por Dados: Tomada de decisões baseada em análise de dados
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Platform") ? "selected" : ""}`}>
-            <img src="Platform.png" alt="Platform" style={{ width: 100 }} onClick={() => handleImageClick("Platform")} />
+            <img src="Platform.png" alt="Platform"  onClick={() => handleImageClick("Platform")} />
 
             <div className="overlay" />
             <div className="image-text">
               Um ambiente tecnológico para construir e reutilizar artefatos
             </div>
           </div>
-          <div className="image-space">
-            <img src="NextDigital-4.png" style={{ width: 100 }} />
-          </div>
+       {/*    <div className="image-space">
+            <img src="NextDigital.png" />
+  </div>*/}
         </div>
         {/* Terceira Linha */}
         <div className="row-three">
           <div className={`image ${disciplinesSelected.includes("Story") ? "selected" : ""}`}>
-            <img src="Story.png" alt="Story" style={{ width: 100 }} onClick={() => handleImageClick("Story")} />
+            <img src="Story.png" alt="Story" onClick={() => handleImageClick("Story")} />
             <div className="overlay" />
             <div className="image-text">Unidades de trabalho ágil</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Backlog") ? "selected" : ""}`}>
-            <img src="Backlog.png" alt="Backlog" style={{ width: 100 }}
+            <img src="Backlog.png" alt="Backlog" 
               onClick={() => handleImageClick("Backlog")}
             />
             <div className="overlay" />
             <div className="image-text">Lista de tarefas priorizadas</div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Solid") ? "selected" : ""}`}>
-            <img src="Solid.png" alt="Solid" style={{ width: 100 }}
+            <img src="Solid.png" alt="Solid" 
               onClick={() => handleImageClick("Solid")}
             />
             <div className="overlay" />
@@ -339,7 +339,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("CleanArch") ? "selected" : ""}`}>
-            <img src="CleanArch.png" alt="CleanArch" style={{ width: 100 }}
+            <img src="CleanArch.png" alt="CleanArch" 
               onClick={() => handleImageClick("CleanArch")}
             />
             <div className="overlay" />
@@ -349,7 +349,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("Git") ? "selected" : ""}`}>
-            <img src="Git.png" alt="Git" style={{ width: 100 }}
+            <img src="Git.png" alt="Git" 
               onClick={() => handleImageClick("Git")}
             />
             <div className="overlay" />
@@ -358,7 +358,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("DevOps") ? "selected" : ""}`}>
-            <img src="DevOps.png" alt="DevOps" style={{ width: 100 }}
+            <img src="DevOps.png" alt="DevOps" 
               onClick={() => handleImageClick("DevOps")}
             />
             <div className="overlay" />
@@ -367,7 +367,7 @@ const App = ({ }) => {
             </div>
           </div>
           <div className={`image ${disciplinesSelected.includes("ArchAsProduct") ? "selected" : ""}`}>
-            <img src="ArchAsProd.png" alt="ArchAsProduct" style={{ width: 100 }}
+            <img src="ArchAsProd.png" alt="ArchAsProduct" 
               onClick={() => handleImageClick("ArchAsProduct")}
             />
             <div className="overlay" />
@@ -379,16 +379,16 @@ const App = ({ }) => {
             <img
               src="DataAsProduct.png"
               alt="DataAsProduct"
-              style={{ width: 100 }} onClick={() => handleImageClick("DataAsProduct")}
+               onClick={() => handleImageClick("DataAsProduct")}
             />
             <div className="overlay" />
             <div className="image-text">
               Tratar dados como um recurso valioso para a empresa
             </div>
           </div>
-          <div className="image-space3">
-            <img src="NextDigital-4.png" style={{ width: 100 }} />
-          </div>
+         {/* <div className="image-space3">
+            <img src="NextDigital.png"  />
+</div>*/}
         </div>
       </div>
       <button id="diagnosticar-button" className="highlight-button"
@@ -505,7 +505,7 @@ const App = ({ }) => {
               id="mensagem"
               name="mensagem"
               rows={4}
-              cols={80}
+              className="responsive-textarea"
               defaultValue={""} />
             <br />
             <br />
